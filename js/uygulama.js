@@ -110,6 +110,10 @@
         return true;
       });
     }
+    if (konu.say && konu.say.turler && !konu.kelimeler.some(function (k) { return konu.say.turler.indexOf(k.tur) !== -1; })) {
+      h('"say" bölümündeki türlerde hiç kelime yok.');
+      konu.bolumler = konu.bolumler.filter(function (b) { return b !== 'say'; });
+    }
     if (!konu.kelimeler.length || !konu.bolumler.length) { h('gösterilecek kelime ya da sekme kalmadı.'); return; }
     hazirKonular[dosya] = konu;
   }
@@ -192,7 +196,8 @@
       (o.adimlar ? adimlarHtml(o.adimlar) : '') +
       '<div class="kurallar">' + kurallar + '</div>' +
       (o.not ? '<div class="not"><p>' + T.ikiDil(o.not) + '</p></div>' : '') +
-      (konu.bolumler.indexOf('oyna') !== -1 ? oyunaGitDugmesi(konu) : '');
+      (konu.bolumler.indexOf('oyna') !== -1 ? oyunaGitDugmesi(konu) : '') +
+      (o.ogretmenNotu ? '<div class="ogretmen-notu tr" lang="tr"><p><b>Öğretmen için:</b> ' + T.tr(o.ogretmenNotu) + '</p></div>' : '');
   }
 
   // "Bul" sekmesi: Kur'an sayfasında okumadan önce bulunacak kelimeler
