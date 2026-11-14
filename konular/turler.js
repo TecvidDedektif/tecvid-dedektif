@@ -39,3 +39,13 @@ TECVID.turEkle('munfasil', {
   },
   kopru: true,   // iki kutunun arasına köprü çizilir
 });
+
+TECVID.turEkle('lazim', {
+  ad: 'Lâzım',
+  uzunAd: 'Medd-i Lâzım',
+  ipucu: { nl: 'Şedde of sukûn', tr: 'Şedde ya da sükûn' },
+  neden: {
+    nl: 'Na de <b class="med">med-letter</b> komt een letter met <b class="sukun">şedde</b> of <b class="sukun">sukûn</b> → <b>Medd-i Lâzım</b>, 6 tellen.',
+    tr: 'Med harfinden sonra şeddeli ya da sükûnlu harf → Medd-i Lâzım, 6 hareke.',
+  },
+});

@@ -14,7 +14,7 @@ TECVID.anaEkran([
     kategori: { nl: 'Verlengingen', tr: 'Medler' },
     konular: [
       { dosya: 'muttasil-munfasil' },
-      { yakinda: 'Medd-i Lâzım' },
+      { dosya: 'medd-lazim' },
       { yakinda: 'Medd-i Ârız' },
       { yakinda: 'Medd-i Lîn' },
     ],

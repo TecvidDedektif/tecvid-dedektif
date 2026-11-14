@@ -8,7 +8,11 @@
 TECVID.sayacKur = function (kap, konu) {
   var T = TECVID, esc = T.esc;
   var sayilar = konu.say.sayilar;            // örneğin [4, 5]
-  var secili = konu.kelimeler[0];
+  // "turler" yazılmışsa sayaçta sadece o türdeki kelimeler görünür
+  var kelimeler = konu.kelimeler.filter(function (k) {
+    return !konu.say.turler || konu.say.turler.indexOf(k.tur) !== -1;
+  });
+  var secili = kelimeler[0];
   var vurus = sayilar[0];
   var zamanlayici = null;
   var ARALIK = 700;                          // bir nokta kaç milisaniyede yanar
@@ -33,7 +37,7 @@ TECVID.sayacKur = function (kap, konu) {
   function yer(ad) { return kap.querySelector('[data-yer="' + ad + '"]'); }
 
   // Kelime seçme düğmeleri
-  konu.kelimeler.forEach(function (k, i) {
+  kelimeler.forEach(function (k, i) {
     var d = document.createElement('button');
     d.type = 'button';
     d.className = 'cip';
