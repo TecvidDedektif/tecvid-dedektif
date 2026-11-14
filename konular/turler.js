@@ -9,6 +9,38 @@
    yeni bir TECVID.turEkle(...) bloğu yazılır.
    ============================================================ */
 
+// ---- Med harfleri: hangi harf? ----
+TECVID.turEkle('elif', {
+  ad: 'Elif',
+  uzunAd: 'Elif',
+  ipucu: { nl: 'Na üstün', tr: 'Üstünden sonra' },
+  neden: {
+    nl: 'Een <b class="med">elif</b> na een letter met <b>üstün</b>: de klank wordt een lange “â” → <b>Medd-i Tabiî</b>, 2 tellen.',
+    tr: 'Üstünlü harften sonra elif: ses uzun “â” olur → Medd-i Tabiî, 2 hareke.',
+  },
+});
+
+TECVID.turEkle('vav', {
+  ad: 'Vav',
+  uzunAd: 'Vav',
+  ipucu: { nl: 'Na ötre', tr: 'Ötreden sonra' },
+  neden: {
+    nl: 'Een <b class="med">vav</b> na een letter met <b>ötre</b>: de klank wordt een lange “û” → <b>Medd-i Tabiî</b>, 2 tellen.',
+    tr: 'Ötreli harften sonra vav: ses uzun “û” olur → Medd-i Tabiî, 2 hareke.',
+  },
+});
+
+TECVID.turEkle('ye', {
+  ad: 'Ye',
+  uzunAd: 'Ye',
+  ipucu: { nl: 'Na esre', tr: 'Esreden sonra' },
+  neden: {
+    nl: 'Een <b class="med">ye</b> na een letter met <b>esre</b>: de klank wordt een lange “î” → <b>Medd-i Tabiî</b>, 2 tellen.',
+    tr: 'Esreli harften sonra ye: ses uzun “î” olur → Medd-i Tabiî, 2 hareke.',
+  },
+});
+
+// ---- Med çeşitleri: neden uzuyor? ----
 TECVID.turEkle('tabii', {
   ad: 'Tabiî',
   uzunAd: 'Medd-i Tabiî',
