@@ -6,34 +6,60 @@
 
 ## Şu an içinde ne var
 
-**Medd Dedektif**: medd-i muttasıl ve medd-i munfasıl. Dört bölüm:
+Ana ekranda konular kategorilere ayrılmış. Her konu kendi sekmeleriyle açılır.
 
-| Bölüm | Ne yapar |
-| --- | --- |
-| Leer · Öğren | Kuralı renkli ve kutulu örneklerle gösterir |
-| Speel · Oyna | 10 soruluk oyun: muttasıl mı, munfasıl mı? |
-| Tel mee · Birlikte say | Uzatmayı birlikte saymak için sayaç |
-| Yâsîn · 4. sayfa | Yâsîn 41–54. âyetlerdeki medler, üç seçenekli oyun |
+| Kategori | Konu | Sekmeler |
+| --- | --- | --- |
+| Medler | Muttasıl & Munfasıl | Öğren, Oyna, Birlikte say |
+| Kur'an sayfaları | Yâsîn, 4. sayfa | Bul, Oyna |
+| | Medd-i Lâzım, Ârız, Lîn, Kalkale | Yakında |
 
 ## Dosyalar
 
-| Dosya | Ne işe yarar |
-| --- | --- |
-| `index.html` | Oyunun tamamı: sayfa yapısı (HTML), görünüm (CSS) ve oyun mantığı (JavaScript) |
-| `fonts/` | Yazı tipleri (Amiri, Bricolage Grotesque, Figtree) ve lisansları |
-| `qr.png` | Canlı adrese giden QR kodu. Oyundaki "QR" düğmesi bunu gösterir |
-
-## Kelime eklemek
-
-Kelimeler `index.html` içinde iki listede durur: `ITEMS` (Oyna bölümü) ve `YITEMS` (Yâsîn bölümü). Her kelime bir satırdır:
-
-```js
-{ t:'mut', w:[[['جَ',''],[A,'m'],['ءَ','h']]], tl:'câe', nl:'kwam', tr:'geldi', src:'Nasr 1' },
+```
+index.html            sayfanın iskeleti
+css/stil.css          görünüm: renkler, yazı tipleri, yerleşim
+js/                   oyunun kodu (içerik eklerken dokunmana gerek yok)
+  tecvid.js           çekirdek
+  kelime.js           Arapça kelimeyi renkli ve kutulu çizer
+  oyun.js             Oyna sekmesi
+  sayac.js            Birlikte say sekmesi
+  uygulama.js         ana ekran, sekmeler, gezinme
+konular/              İÇERİK: senin çalışacağın yer
+  liste.js            ana ekrandaki kategoriler ve sıra
+  turler.js           cevap türleri (Tabiî, Muttasıl, Munfasıl...)
+  muttasil-munfasil.js
+  yasin-sayfa-4.js
+fonts/                yazı tipleri ve lisansları
+qr.png                canlı adrese giden QR kodu
 ```
 
-- `t`: türü. `'mut'` muttasıl, `'mun'` munfasıl, `'tab'` tabiî
-- `w`: kelimenin parçaları. `'m'` med harfi (mavi), `'h'` hemze (kırmızı), `''` normal
-- `tl`: okunuşu, `nl`: Hollandaca anlamı, `tr`: Türkçe anlamı, `src`: sûre ve âyet
+## Kelime yazma kuralı
+
+Kelime düz Arapça yazılır, renklenecek harfler işaretlerin içine alınır:
+
+| İşaret | Anlamı | Renk |
+| --- | --- | --- |
+| `( )` | med harfi | mavi |
+| `[ ]` | hemze | kırmızı |
+| `{ }` | sükûn, şedde | mor |
+
+Kelimeler arasındaki boşluk yeni bir kutu demektir. Örnekler:
+
+```js
+{ tur: 'muttasil', yazi: 'جَ(آ)[ءَ]', okunus: 'câe', nl: 'kwam', tr: 'geldi', kaynak: 'Nasr 1' },
+{ tur: 'munfasil', yazi: 'يَ(آ) [أَ]يُّهَا', okunus: 'yâ eyyühâ', nl: 'o jullie', tr: 'ey', kaynak: 'Bakara 21' },
+```
+
+Arapça yazarken parantezler ekranda ters görünebilir, önemli değil, uygulama ikisini de kabul eder.
+
+## Yeni konu eklemek (örnek: Medd-i Lâzım)
+
+1. **Tür ekle.** `konular/turler.js` dosyasına `lazim` adında yeni bir `TECVID.turEkle(...)` bloğu yaz.
+2. **Konu dosyası yap.** `konular/muttasil-munfasil.js` dosyasını kopyala, adını `medd-lazim.js` yap. İçinde `id: 'medd-lazim'` yaz, metinleri ve kelimeleri değiştir.
+3. **Ana ekrana koy.** `konular/liste.js` içinde `{ yakinda: 'Medd-i Lâzım' }` satırını `{ dosya: 'medd-lazim' }` yap.
+
+Bir yerde hata yaparsan (eksik virgül, yanlış tür adı, kapatılmamış parantez) ana ekranın üstünde kırmızı bir kutu çıkar ve hangi dosyanın kaçıncı satırında ne olduğunu Türkçe söyler. Hatalı kelime oyuna girmez, diğerleri çalışmaya devam eder.
 
 Yeni bir âyet eklemeden önce metni güvenilir bir mushaftan kontrol edin.
 
@@ -43,8 +69,8 @@ Oyun hiçbir kişisel veri toplamaz. Üyelik, isim, çerez ve reklam yok. Sayfa 
 
 ## Yol haritası
 
-1. Temel: depo ve canlı adres
-2. Düzenli yapı: kelimeler ayrı veri dosyasında, uygulama adı ve ikonu
-3. Telefona kurulabilir ve internetsiz çalışan uygulama
+1. ~~Temel: depo ve canlı adres~~
+2. Düzenli yapı: ana ekran, kategoriler, konu dosyaları (bu aşama)
+3. Uygulama adı ve ikonu; telefona kurulabilir ve internetsiz çalışan uygulama
 4. Yeni konular: medd-i lâzım, medd-i ârız, medd-i lîn, kalkale
 5. Play Store ve App Store
