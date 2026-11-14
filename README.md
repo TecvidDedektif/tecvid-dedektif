@@ -10,7 +10,8 @@ Ana ekranda konular kategorilere ayrılmış. Her konu kendi sekmeleriyle açıl
 
 | Kategori | Konu | Sekmeler |
 | --- | --- | --- |
-| Medler | Muttasıl & Munfasıl | Öğren, Oyna, Birlikte say |
+| Medler | Med harfleri ve Medd-i Tabiî | Öğren, Oyna (elif, vav, ye), Birlikte say (2 hareke) |
+| | Muttasıl & Munfasıl | Öğren, Oyna, Birlikte say |
 | | Medd-i Lâzım | Öğren, Oyna (muttasıl ve munfasıl ile karışık), Birlikte say (6 hareke) |
 | Kur'an sayfaları | Yâsîn, 4. sayfa | Bul, Oyna |
 | | Medd-i Ârız, Lîn, Kalkale | Yakında |
@@ -28,7 +29,8 @@ js/                   oyunun kodu (içerik eklerken dokunmana gerek yok)
   uygulama.js         ana ekran, sekmeler, gezinme
 konular/              İÇERİK: senin çalışacağın yer
   liste.js            ana ekrandaki kategoriler ve sıra
-  turler.js           cevap türleri (Tabiî, Muttasıl, Munfasıl...)
+  turler.js           cevap türleri (Elif, Vav, Ye, Tabiî, Muttasıl...)
+  med-harfleri.js
   muttasil-munfasil.js
   medd-lazim.js
   yasin-sayfa-4.js
@@ -76,5 +78,5 @@ Oyun hiçbir kişisel veri toplamaz. Üyelik, isim, çerez ve reklam yok. Sayfa 
 1. ~~Temel: depo ve canlı adres~~
 2. ~~Düzenli yapı: ana ekran, kategoriler, konu dosyaları~~
 3. Uygulama adı ve ikonu; telefona kurulabilir ve internetsiz çalışan uygulama
-4. Yeni konular: ~~medd-i lâzım~~, medd-i ârız, medd-i lîn, kalkale
+4. Yeni konular: ~~med harfleri~~, ~~medd-i lâzım~~, medd-i ârız, medd-i lîn, kalkale
 5. Play Store ve App Store

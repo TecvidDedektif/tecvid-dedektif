@@ -13,6 +13,7 @@ TECVID.anaEkran([
   {
     kategori: { nl: 'Verlengingen', tr: 'Medler' },
     konular: [
+      { dosya: 'med-harfleri' },
       { dosya: 'muttasil-munfasil' },
       { dosya: 'medd-lazim' },
       { yakinda: 'Medd-i Ârız' },

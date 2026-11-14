@@ -60,7 +60,7 @@ a:focus-visible, button:focus-visible { outline:3px solid var(--med); outline-of
 h2 { font-family:var(--f-disp); font-weight:800; font-size:clamp(22px,2.6vw,30px); margin:0 0 4px; text-wrap:balance; line-height:1.15 }
 h2 .tr { font-weight:600 }
 .giris { color:var(--muted); margin:0 0 20px; max-width:65ch }
-.giris .ar, .kural-metin .ar { font-size:1.4em; line-height:1 }
+.giris .ar, .kural-metin .ar, .adim .ar { font-size:1.4em; line-height:1 }
 
 /* ---------- Üst şerit ---------- */
 .ust { background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:env(safe-area-inset-top,0px); z-index:5 }
@@ -130,7 +130,7 @@ main { padding-block:24px 48px; min-height:60vh }
 
 /* ---------- Arapça kelime: kutular, renkler, köprü ---------- */
 .kelime { font-family:var(--f-ar); direction:rtl; display:inline-flex; gap:.22em; align-items:flex-end; position:relative; line-height:1.6; font-size:clamp(56px,9vw,112px) }
-.kelime .kutu { display:inline-block; padding:0 .12em; border:3px solid transparent; border-radius:14px; line-height:1.55 }
+.kelime .kutu { display:inline-block; padding:0 .12em .1em; border:3px solid transparent; border-radius:14px; line-height:1.55 }
 .kelime.kutulu .kutu { border-color:var(--ink) }
 .kelime .ara { position:relative; align-self:stretch; width:0; display:none }
 .kelime.koprulu .ara { display:block }
